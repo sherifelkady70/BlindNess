@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BlindNess" parent="Theme.Material3.DayNight.NoActionBar">
+      <item name="colorPrimary">#e924df</item>
+    </style>
+
+    <style name="Theme.BlindNess" parent="Base.Theme.BlindNess" />
+</resources>
