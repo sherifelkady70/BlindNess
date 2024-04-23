@@ -1,4 +1,4 @@
-package com.route.blindness.ui.auth.auth_fragments
+package com.route.blindness.ui.auth.auth_fragments.register
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
