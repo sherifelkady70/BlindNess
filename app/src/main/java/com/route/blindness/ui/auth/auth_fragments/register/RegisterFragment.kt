@@ -5,22 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.route.blindness.R
+import com.route.blindness.databinding.FragmentRegisterBinding
 
 class RegisterFragment : Fragment() {
-
-
+    lateinit var viewModel : RegisterViewModel
+    lateinit var binding : FragmentRegisterBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false)
+        viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
+        binding = DataBindingUtil.inflate(layoutInflater,R.layout.fragment_register,container,false)
+        binding.vm = viewModel
+        return binding.root
     }
 
 }

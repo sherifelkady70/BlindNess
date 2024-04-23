@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="vm"
+            type="com.route.blindness.ui.auth.auth_fragments.register.RegisterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,11 +53,13 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/full_name_txt"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:error="@{vm.fullNameErrorLiveData}">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:text="@={vm.fullNameLiveData}"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -77,11 +81,13 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/email_txt"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:error="@{vm.emailErrorLiveData}">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:text="@={vm.emailLiveData}"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -103,11 +109,13 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/pass_txt"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:error="@{vm.passErrorLiveData}">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:text="@={vm.passLiveData}"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -129,11 +137,13 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/confirm_pass_txt"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:error="@{vm.confirmPassErrorLiveData}">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:text="@={vm.confirmPassLiveData}"/>
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -156,11 +166,14 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/phone_number_txt"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:error="@{vm.phoneNumErrorLiveData}">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:inputType="phone"
+                android:text="@={vm.phoneNumLiveData}"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -173,7 +186,8 @@
             android:textColor="@color/white"
             android:text="@string/sign_up"
             android:textSize="18sp"
-            android:layout_marginTop="3dp"/>
+            android:layout_marginTop="3dp"
+            android:onClick="@{() -> vm.register()}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

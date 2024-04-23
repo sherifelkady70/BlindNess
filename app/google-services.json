@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "247270210257",
+    "project_id": "blindness-b5aaa",
+    "storage_bucket": "blindness-b5aaa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247270210257:android:3c585a9fc8dae1b39923f0",
+        "android_client_info": {
+          "package_name": "com.route.blindness"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSnlUOIMr8pPJL9ufLz7sczH0e9QQ_hAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
