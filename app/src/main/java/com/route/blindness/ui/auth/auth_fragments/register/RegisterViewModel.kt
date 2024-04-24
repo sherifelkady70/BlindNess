@@ -1,8 +1,10 @@
 package com.route.blindness.ui.auth.auth_fragments.register
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.route.blindness.ui.ViewMessage
 import com.route.blindness.ui.auth.auth_repository.AuthRepoImpl
 import com.route.blindness.ui.auth.auth_repository.AuthRepoInterface
 import kotlinx.coroutines.launch
@@ -20,20 +22,25 @@ class RegisterViewModel : ViewModel() {
     val phoneNumLiveData = MutableLiveData<String?>()
     val phoneNumErrorLiveData = MutableLiveData<String?>()
     private val authRepo : AuthRepoInterface = AuthRepoImpl()
+    val viewMessage = MutableLiveData<ViewMessage>()
+    val isLoading = MutableLiveData<Boolean>()
 
-    fun register(){
+    fun register() {
+        if (!validate()) return
+        viewModelScope.launch {
+            isLoading.value = true
         try {
-            if(!validate()) return
-            viewModelScope.launch {
-                authRepo.register(fullNameLiveData.value!!,emailLiveData.value!!,passLiveData.value!!)
-            }
-        }catch (e:Exception){
-
+            authRepo.register(fullNameLiveData.value!!, emailLiveData.value!!, passLiveData.value!!)
+            isLoading.value = false
+            onGoToLoginScreen!!.onGoToLogin()
+        } catch (e: Exception) {
+            isLoading.value = false
+            viewMessage.value = ViewMessage("Register Error", "$e")
+        }
         }
     }
     private fun validate() : Boolean{
         var isValid = true
-
         if(fullNameLiveData.value.isNullOrEmpty()){
             fullNameErrorLiveData.value = "Please Enter Your Email"
             isValid = false
@@ -49,10 +56,7 @@ class RegisterViewModel : ViewModel() {
         if(passLiveData.value.isNullOrEmpty()){
             passErrorLiveData.value = "Please Enter Your Password"
             isValid = false
-        }else {
-            passErrorLiveData.value = null
-        }
-        if(passLiveData.value!!.length < 6){
+        }else if(passLiveData.value!!.length < 6){
             passErrorLiveData.value = "Must More Than 6 letters"
             isValid = false
         }else{
@@ -61,10 +65,7 @@ class RegisterViewModel : ViewModel() {
         if(confirmPassLiveData.value.isNullOrEmpty()){
             confirmPassErrorLiveData.value = "Please Enter Your Password"
             isValid = false
-        }else {
-            confirmPassErrorLiveData.value = null
-        }
-        if(confirmPassLiveData.value!!.length < 6){
+        }else if(confirmPassLiveData.value!!.length < 6){
             confirmPassErrorLiveData.value = "Must More Than 6 letters"
             isValid = false
         }else{
@@ -79,4 +80,10 @@ class RegisterViewModel : ViewModel() {
 
         return isValid
     }
+
+    interface OnGoToLoginScreen{
+        fun onGoToLogin()
+    }
+    var onGoToLoginScreen : OnGoToLoginScreen?=null
+
 }

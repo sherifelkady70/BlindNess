@@ -1,6 +1,8 @@
 package com.route.blindness.ui.auth.auth_fragments.login
 
+import android.app.AlertDialog
 import android.content.Intent
+import android.icu.text.CaseMap.Title
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,6 +20,7 @@ import com.route.blindness.ui.home.HomeActivity
 class LoginFragment : Fragment() {
     private lateinit var viewModel : LoginViewModel
     lateinit var binding : FragmentLoginBinding
+    var dialog : AlertDialog? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +28,7 @@ class LoginFragment : Fragment() {
     ): View? {
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         binding = DataBindingUtil.inflate(layoutInflater,R.layout.fragment_login,container,false)
+        binding.lifecycleOwner =this
         return binding.root
 
     }
@@ -32,6 +36,20 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
         navigates()
+        observeLiveData()
+    }
+    private fun observeLiveData(){
+        viewModel.isLoading.observe(this){
+            if(it){
+                showLoading()
+            }else{
+                hideLoading()
+            }
+        }
+
+        viewModel.viewMessage.observe(this){
+            showDialog(it.titleOfError,it.descriptionOfError)
+        }
     }
     private fun navigates(){
         viewModel.onLoginClick =  object : LoginViewModel.OnLoginClick{
@@ -47,5 +65,51 @@ class LoginFragment : Fragment() {
             }
 
         }
+    }
+
+
+    private fun showLoading(){
+        val builder = AlertDialog.Builder(activity)
+        builder.setView(R.layout.loading)
+        dialog = builder.create()
+        dialog?.show()
+    }
+    private fun hideLoading(){
+        dialog?.dismiss()
+    }
+
+    private fun showDialog(
+        title: String? = null,
+        message: String? = null,
+//        posBtnTitle: String? = null,
+//        onPosBtnClick: (() -> Unit)? = null,
+//        onNegBtnClick: (() -> Unit)? = null,
+//        negBtnTitle: String? = null,
+
+
+    ) {
+        val myDialog = AlertDialog.Builder(activity)
+        myDialog.setTitle(title)
+        myDialog.setMessage(message)
+//        posBtnTitle.let {
+//            myDialog.setPositiveButton(posBtnTitle,
+//                object : DialogInterface.OnClickListener{
+//                    override fun onClick(dialog: DialogInterface?, which: Int) {
+//                        dialog?.dismiss()
+//                        onPosBtnClick?.invoke()
+//                    }
+//
+//                })
+//        }
+//        negBtnTitle.let {
+//            myDialog.setNegativeButton(negBtnTitle
+//            ) { dialog, which ->
+//                dialog?.dismiss()
+//                onNegBtnClick?.invoke()
+//            }
+//        }
+
+        myDialog.create().show()
+
     }
 }

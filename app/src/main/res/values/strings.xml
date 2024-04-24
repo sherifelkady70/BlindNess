@@ -57,4 +57,5 @@
     </string>
     <string name="enter_email">enter email</string>
     <string name="enter_password">enter password</string>
+    <string name="loading">Loading</string>
 </resources>

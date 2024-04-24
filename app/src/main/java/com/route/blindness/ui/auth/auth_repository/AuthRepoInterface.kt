@@ -4,4 +4,5 @@ import com.route.blindness.ui.auth.model.User
 
 interface AuthRepoInterface {
     suspend fun register(userName : String , email: String , password:String) : User
+    suspend fun login(email: String,password: String) : User
 }
