@@ -39,7 +39,7 @@ class LoginFragment : Fragment() {
         observeLiveData()
     }
     private fun observeLiveData(){
-        viewModel.isLoading.observe(this){
+        viewModel.isLoading.observe(viewLifecycleOwner){
             if(it){
                 showLoading()
             }else{
@@ -47,7 +47,7 @@ class LoginFragment : Fragment() {
             }
         }
 
-        viewModel.viewMessage.observe(this){
+        viewModel.viewMessage.observe(viewLifecycleOwner){
             showDialog(it.titleOfError,it.descriptionOfError)
         }
     }
