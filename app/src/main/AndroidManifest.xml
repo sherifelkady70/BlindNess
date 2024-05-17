@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,13 +18,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BlindNess"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ui.Fragment.RattingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.StartActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.home.HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.BlindNess" />
-
         <activity
             android:name=".ui.splash.SplashActivity"
             android:exported="true">
@@ -28,12 +38,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.auth.AuthActivity"
-            android:exported="false">
-        </activity>
-
+            android:exported="false" />
+        <activity
+            android:name=".ui.realtime.RealTimeActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

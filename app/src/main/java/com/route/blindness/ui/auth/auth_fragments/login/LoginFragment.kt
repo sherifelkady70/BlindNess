@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.route.blindness.R
 import com.route.blindness.databinding.FragmentLoginBinding
+import com.route.blindness.ui.StartActivity
 import com.route.blindness.ui.auth.AuthActivity
 import com.route.blindness.ui.home.HomeActivity
 
@@ -54,7 +55,7 @@ class LoginFragment : Fragment() {
     private fun navigates(){
         viewModel.onLoginClick =  object : LoginViewModel.OnLoginClick{
             override fun onClick() {
-                startActivity(Intent(requireContext(),HomeActivity::class.java))
+                startActivity(Intent(requireContext(),StartActivity::class.java))
             }
         }
         viewModel.onGoToRegisterClick = object : LoginViewModel.OnGoToRegisterClick{
