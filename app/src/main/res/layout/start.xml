@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="20dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#E91E98"
+                android:textStyle="bold"
+                app:flow_horizontalAlign="center"
+                android:textSize="25dp"
+                android:text="Color Blindness"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0ur actions:"
+                android:layout_marginTop="50dp"
+                android:textSize="20dp"
+             android:textStyle="italic|bold"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="We have developed an application to help
+color-blind individuals correctly recognize
+traffic lights for safer navigation on roads like
+normal people."
+                android:textColor="@color/black"
+                android:textSize="18dp"
+
+
+                tools:ignore="TextSizeCheck" />
+            <TextView
+                android:id="@+id/tv_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="15dp"
+                android:textSize="20dp"
+                android:textStyle="italic|bold"
+                android:textColor="@color/black"
+                android:text="You can follow the following steps
+for more accurate use :"
+                />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                >
+
+                <ImageButton
+                    android:id="@+id/img1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:src="@drawable/baseline_brightness_1_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                <TextView
+                    android:id="@+id/tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    app:layout_constraintStart_toEndOf="@+id/img1"
+                    android:text="Visit our website to take a free color blindness test."
+                    />
+                <ImageButton
+                    android:id="@+id/img2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:src="@drawable/baseline_brightness_1_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img1"
+                    android:layout_marginTop="20dp"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                <TextView
+                    android:id="@+id/tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp"
+                     app:layout_constraintStart_toEndOf="@id/img2"
+                    app:layout_constraintTop_toBottomOf="@id/img1"
+                    android:textSize="18dp"
+                    android:text="Keep your phone close to the traffic light you want to recognize.
+"
+                    />
+
+                <ImageButton
+                    android:id="@+id/img3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:src="@drawable/baseline_brightness_1_24"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img2"
+                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                <TextView
+                    android:id="@+id/tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toEndOf="@id/img3"
+                    app:layout_constraintTop_toBottomOf="@+id/img2"
+                    android:textSize="18dp"
+                    android:text="Wait a few moments and our model will quickly determine the color of the current traffic light."
+                    />
+
+                <ImageButton
+                    android:id="@+id/img4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:src="@drawable/baseline_brightness_1_24"
+                    android:layout_marginTop="50dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img3"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                <TextView
+                    android:id="@+id/tv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="50dp"
+                    app:layout_constraintStart_toEndOf="@id/img4"
+                    app:layout_constraintTop_toBottomOf="@+id/img3"
+
+                    android:textSize="18dp"
+                    android:text="Act according to the color indicated by the application.
+"
+                    />
+
+                <ImageButton
+                    android:id="@+id/img5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:src="@drawable/baseline_brightness_1_24"
+                    android:layout_marginTop="50dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img4"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                <TextView
+                    android:id="@+id/tv5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:layout_marginTop="50dp"
+                    app:layout_constraintStart_toEndOf="@id/img5"
+                    app:layout_constraintTop_toBottomOf="@+id/img4"
+                    android:text="Proceed safely based on the traffic signal provided by the app"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+<Button
+    android:id="@+id/btn_accept"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textStyle="bold"
+    android:layout_gravity="center"
+    android:text="Accept"
+    android:layout_marginTop="50dp"
+    android:textSize="20dp"
+    />
+            <ImageView
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:src="@drawable/trafficlight"
+                android:layout_marginBottom="100dp"
+                />
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

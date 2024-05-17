@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BlindNess</string>
+    <string name="email">ايميل</string>
+    <string name="password">كلمه السر</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="create_account">انشاء حساب</string>
+    <string name="fullname">الاسم</string>
+    <string name="confirm_password">كلمه السر</string>
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="sign_up">تسجيل الدخول عبر  انشاء حساب</string>
+    <string name="next">التالي</string>
+    <string name="previous">رجوع</string>
+    <string name="enter_email">ادخل الايميل</string>
+    <string name="enter_password">ادخل كلمه السر</string>
+    <string name="loading">جاري التحميل</string>
+    <string name="log_out_all_accounts">تسجيل الخروج من جميع الاجهوة</string>
+    <string name="log_out">تسجيل الخروج</string>
+    <string name="add_account">اضافه حساب</string>
+    <string name="help">المساعده</string>
+    <string name="rate_app">تقيم التطبيق</string>
+    <string name="language">اللغة</string>
+    <string name="share_app">مشاركه التطبيق</string>
+    <string name="account">الحساب</string>
+    <string name="system">النظام</string>
+    <string name="start_realtime_camera">"بدأ لايف كاميرا "</string>
+    <string name="setting">الاعدادت</string>
+    <string name="realtime">لايف كاميرا</string>
+    <string name="arabic">العربية</string>
+    <string name="english">الانجليزيه</string>
+    <string name="tap_on_the_stars_and_rate_your_experience">اضغط على النجوم وتقييم تجربتك</string>
+    <string name="submit_rating">تم</string>
+    <string name="rate_us">قيمنا</string>
+    <string name="comment_optional">تعليق(اختياري)</string>
+    <string name="submit">ارسال</string>
+    <string name="click_here_to">اضغط هنا</string>
+</resources>
